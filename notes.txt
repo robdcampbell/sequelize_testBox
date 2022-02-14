@@ -1,4 +1,5 @@
 
+*** not sql related: git rm -r --cached .
 
 Sequelize CLI commands:
     - create db:  sequelize db:create dataBaseName
@@ -21,7 +22,7 @@ Read:
   ModelName.find( )
 
 Update:
-  ModelName
+  ModelName.update()
 
 Delete:
-  ModelName
+  ModelName.delete()
