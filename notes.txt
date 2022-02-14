@@ -1,0 +1,27 @@
+
+
+Sequelize CLI commands:
+    - create db:  sequelize db:create dataBaseName
+    - create model: sequelize model:generate
+    ex: sequelize model:generate --name User --attributes name:string,email:string,role:string
+
+** ISSUE SOLVED: Error: Please install 'pg' module manually
+  Migrating:
+    ./node_modules/.bin/sequelize db:migrate
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+Cheat Sheet: 
+
+create:
+  ModelName.create( )
+
+Read:
+  ModelName.findAll( )
+  ModelName.find( )
+
+Update:
+  ModelName
+
+Delete:
+  ModelName
