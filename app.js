@@ -2,7 +2,11 @@ const express = require("express");
 const app = express();
 const PORT = 5000;
 //importing sequelize models
-const { sequelize, User } = require("./models");
+// const { sequelize, User } = require("./models");
+const { sequelize } = require("./models");
+
+// const sequelize = require("sequelize");
+const User = require("./models/user.js");
 
 app.use(express.json());
 

@@ -26,3 +26,9 @@ Update:
 
 Delete:
   ModelName.delete()
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+https://www.codesolution.co.in/detail/post/create-rest-api-using-sequelize-babel-and-es6-in-nodejs-with-postgresql-database
+
+example: https://github.com/Sudarshan101/postgresCurlApi
