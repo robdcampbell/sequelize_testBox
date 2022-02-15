@@ -1,47 +1,34 @@
-"use strict";
-const { Model } = require("sequelize");
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-    // *** Decides which fields are returned - don't return the userID,password, etc..
-    toJSON() {
-      return {
-        ...this.get(),
-        id: undefined,
-      };
-    }
-  }
-  User.init(
-    {
-      uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+import Sequelize from "sequelize";
+import { DataTypes } from "sequelize";
+import sequelize from "../db/db.js";
+
+// prevent UUID and ID being sent in response.
+
+const User = sequelize.define(
+  "users",
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
     },
-    {
-      sequelize,
-      tableName: "users",
-      modelName: "User",
-    }
-  );
-  return User;
-};
+    name: {
+      type: Sequelize.STRING,
+    },
+    email: {
+      type: Sequelize.STRING,
+      unique: true,
+    },
+    role: {
+      type: Sequelize.STRING,
+      default: false,
+    },
+    password: {
+      type: Sequelize.STRING,
+    },
+  },
+  {
+    timestamps: false,
+  }
+);
+
+export default User;

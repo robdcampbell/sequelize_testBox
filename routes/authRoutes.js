@@ -6,9 +6,10 @@ import {
   getAllUsers,
   deleteUser,
   updateUser,
+  getUser,
 } from "../controllers/userController.js";
 
 router.route("/").post(createUser).get(getAllUsers);
-router.route("/:uuid").patch(updateUser).delete(deleteUser);
+router.route("/:uuid").get(getUser).patch(updateUser).delete(deleteUser);
 
 export default router;
