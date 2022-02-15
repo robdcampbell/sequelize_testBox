@@ -1,14 +1,12 @@
 import Sequelize from "sequelize";
 import { DataTypes } from "sequelize";
-import { sequelize } from "../database/database";
+import sequelize from "../db/db.js";
+
+// prevent UUID and ID being sent in response.
 
 const User = sequelize.define(
   "users",
   {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-    },
     uuid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -19,6 +17,10 @@ const User = sequelize.define(
     email: {
       type: Sequelize.STRING,
       unique: true,
+    },
+    role: {
+      type: Sequelize.STRING,
+      default: false,
     },
     password: {
       type: Sequelize.STRING,
